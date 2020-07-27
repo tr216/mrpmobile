@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; img-src 'self' data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>tr216</title>
+    </head>
+    <body>
+        <script>
+          function onDeviceReady() {
+            if (navigator.connection.type == Connection.NONE) {
+              navigator.notification.alert('Devam etmek için Internet bağlantısı gereklidir.');
+            } else {
+              var ref = cordova.InAppBrowser.open('https://tr216.com/?mobileapp=1', '_self', 'location=no,zoom=no;');
+              ref.addEventListener('exit', function(){
+                navigator.app.exitApp();
+              });
+            }
+          }
+          document.addEventListener("deviceready", onDeviceReady, false);
+        </script>
+        <div>
+            <center>
+                <img src="img/tr216-logo.png" style="width: 100%;">
+                <h1>TR216' ya Hoş Geldiniz</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Bağlanıyor</p>
+                    <p class="event received">Bağlantı kuruldu</p>
+                </div>
+            </center>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+    </body>
+</html>
